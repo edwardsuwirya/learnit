@@ -4,7 +4,7 @@ import { color } from 'react-native/Libraries/Components/View/ReactNativeStyleAt
 
 const Header = () => {
     return (
-        <Text style={styles.textStyle}>Enigma!</Text>
+        <Text style={styles.textStyle}>Hello, Enigmanians</Text>
     );
 }
 
