@@ -1,9 +1,9 @@
 import React,{useState} from 'react';
 import { StyleSheet, Text, } from 'react-native';
 
-const Header = () => {
+const Header = (props) => {
     return (
-        <Text style={styles.textStyle}>Hello, Enigmanians</Text>
+        <Text style={styles.textStyle}>Hello, {props.name}</Text>
     );
 }
 

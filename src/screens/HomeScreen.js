@@ -6,7 +6,7 @@ import Header from '../components/Header';
 const HomeScreen = () => {
     return (
         <View style={styles.container}>
-          <Header/>
+          <Header name="Enigma"/>
           <StatusBar style="auto" />
         </View>
       );
