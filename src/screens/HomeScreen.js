@@ -1,14 +1,14 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet,View } from 'react-native';
+import { StyleSheet,SafeAreaView } from 'react-native';
 import Header from '../components/Header';
 
 const HomeScreen = () => {
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
           <Header name="Enigma"/>
           <StatusBar style="auto" />
-        </View>
+        </SafeAreaView>
       );
 }
 

@@ -1,7 +1,18 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import { StyleSheet, Text, } from 'react-native';
 
 const Header = (props) => {
+    const [isShowingText, setIsShowingText] = useState(true);
+    useEffect(() => {
+        const toggle = setInterval(() => {
+          setIsShowingText(!isShowingText);
+        }, 1000);
+   
+        return () => clearInterval(toggle);
+     })
+     if (!isShowingText) {
+        return null;
+      }
     return (
         <Text style={styles.textStyle}>Hello, {props.name}</Text>
     );
