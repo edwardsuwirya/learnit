@@ -1,10 +1,20 @@
-import React from 'react';
-import { StyleSheet } from 'react-native';
-import HomeScreen from './src/screens/HomeScreen';
+import React, { useState } from 'react';
+import WelcomeScreen from './src/screens/WelcomeScreen';
+import LoginScreen from './src/screens/LoginScreen';
+import GLOBALS from './src/global';
 
 export default function App() {
-  return (
-      <HomeScreen/>
-  );
+  const [screenState, setScreenState] = useState(GLOBALS.SCREEN.WELCOME);
+  switch (screenState) {
+    case GLOBALS.SCREEN.LOGIN:
+      return (
+        <LoginScreen/>
+      );
+    default:
+      return (
+        <WelcomeScreen onNavigate={setScreenState} />
+      );
+  }
+
 }
 
