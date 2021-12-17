@@ -8,7 +8,7 @@ const WelcomeScreen = (props) => {
             <Text style={styles.title}>LearnIt</Text>
             <Image source={require('../assets/images/splash.jpg')} style={{ width: 256, height: 256 }}></Image>
             <View style={styles.buttonView}>
-                <TouchableOpacity style={styles.button} onPress={() => onLogin(props.onNavigate)}>
+                <TouchableOpacity style={styles.button} onPress={() => onNavigateLogin(props.onNavigate)}>
                     <Text style={styles.buttonText}>Login</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button}>
@@ -19,7 +19,7 @@ const WelcomeScreen = (props) => {
     );
 }
 
-const onLogin = (onNavigate) => onNavigate(GLOBALS.SCREEN.LOGIN);
+const onNavigateLogin = (onNavigate) => onNavigate(GLOBALS.SCREEN.LOGIN);
 
 
 const styles = StyleSheet.create({
