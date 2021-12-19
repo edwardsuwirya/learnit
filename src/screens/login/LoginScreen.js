@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, SafeAreaView, View, Text, TextInput, TouchableOpacity } from 'react-native';
-
+import LoadingModal from '../../components/LoadingModal';
 
 const LoginScreen = (props) => {
   const {
@@ -8,11 +8,13 @@ const LoginScreen = (props) => {
     password,
     handleUserNameChange,
     handlePasswordChange,
-    onAuthenticate
+    onAuthenticate,
+    isLoading
   } = props.bloc();
 
   return (
     <SafeAreaView style={styles.container}>
+      <LoadingModal isVisible={isLoading} />
       <View style={styles.body}>
         <Text style={styles.title} >User Name</Text>
         <TextInput testID="userNameInput" style={styles.input}
@@ -24,7 +26,7 @@ const LoginScreen = (props) => {
           onChangeText={handlePasswordChange}
           value={password} />
         <TouchableOpacity
-          style={styles.button} onPress={() => onAuthenticate(userName, password, props.onNavigate)}>
+          style={styles.button} onPress={() => onAuthenticate(userName, password, props.navigation)}>
           <Text>Login</Text>
         </TouchableOpacity>
       </View>

@@ -5,9 +5,11 @@ import { API_URL } from '@env';
 export const LoginBloc = () => {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
+    const [isLoading, setShowLoading] = useState(false);
 
-    const onAuthenticate = async (userName, password, onNavigate) => {
+    const onAuthenticate = async (userName, password, navigation) => {
         try {
+            handleShowLoadingChange(true);
             const response = await fetch(
                 `${API_URL}/login`,
                 {
@@ -23,12 +25,17 @@ export const LoginBloc = () => {
                 }
             );
             const json = await response.json();
-            console.log(json)
-            onNavigate(GLOBALS.SCREEN.MATERIAL);
+            handleShowLoadingChange(false);
+            navigation.replace(GLOBALS.SCREEN.MATERIAL);
         } catch (error) {
+            handleShowLoadingChange(false);
             console.error(error);
         }
     }
+
+    const handleShowLoadingChange = (isLoadingValue) => {
+        setShowLoading(isLoadingValue);
+    };
 
     const handleUserNameChange = (userNameValue) => {
         setUserName(userNameValue);
@@ -43,6 +50,7 @@ export const LoginBloc = () => {
         password,
         handleUserNameChange,
         handlePasswordChange,
-        onAuthenticate
+        onAuthenticate,
+        isLoading
     };
 };
