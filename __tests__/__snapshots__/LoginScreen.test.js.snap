@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Screen renders correctly 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "backgroundColor": "#4169E1",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "padding": 16,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#FCBF49",
+          "marginLeft": 12,
+        }
+      }
+    >
+      User Name
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      onChangeText={[Function]}
+      rejectResponderTermination={true}
+      style={
+        Object {
+          "borderColor": "#FCBF49",
+          "borderWidth": 1,
+          "color": "#FCBF49",
+          "height": 40,
+          "margin": 12,
+          "padding": 10,
+        }
+      }
+      testID="userNameInput"
+      underlineColorAndroid="transparent"
+      value=""
+    />
+    <Text
+      style={
+        Object {
+          "color": "#FCBF49",
+          "marginLeft": 12,
+        }
+      }
+    >
+      Password
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      onChangeText={[Function]}
+      rejectResponderTermination={true}
+      secureTextEntry={true}
+      style={
+        Object {
+          "borderColor": "#FCBF49",
+          "borderWidth": 1,
+          "color": "#FCBF49",
+          "height": 40,
+          "margin": 12,
+          "padding": 10,
+        }
+      }
+      testID="passwordInput"
+      underlineColorAndroid="transparent"
+      value=""
+    />
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#FCBF49",
+          "margin": 12,
+          "opacity": 1,
+          "padding": 12,
+        }
+      }
+    >
+      <Text>
+        Login
+      </Text>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;

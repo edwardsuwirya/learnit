@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, SafeAreaView, View, Text, TextInput, TouchableOpacity } from 'react-native';
-import { LoginBloc } from './LoginBloc';
+
 
 const LoginScreen = (props) => {
   const {
@@ -9,17 +9,17 @@ const LoginScreen = (props) => {
     handleUserNameChange,
     handlePasswordChange,
     onAuthenticate
-  } = LoginBloc();
+  } = props.bloc();
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.body}>
-        <Text style={styles.title}>User Name</Text>
-        <TextInput style={styles.input}
+        <Text style={styles.title} >User Name</Text>
+        <TextInput testID="userNameInput" style={styles.input}
           onChangeText={handleUserNameChange}
           value={userName} />
         <Text style={styles.title}>Password</Text>
-        <TextInput style={styles.input}
+        <TextInput testID="passwordInput" style={styles.input}
           secureTextEntry={true}
           onChangeText={handlePasswordChange}
           value={password} />
