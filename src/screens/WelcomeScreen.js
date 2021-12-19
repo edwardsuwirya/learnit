@@ -2,13 +2,13 @@ import React from 'react';
 import { StyleSheet, SafeAreaView, View, Text, Image, TouchableOpacity } from 'react-native';
 import GLOBALS from '../global';
 
-const WelcomeScreen = (props) => {
+const WelcomeScreen = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.container}>
             <Text style={styles.title}>LearnIt</Text>
             <Image source={require('../assets/images/splash.jpg')} style={{ width: 256, height: 256 }}></Image>
             <View style={styles.buttonView}>
-                <TouchableOpacity style={styles.button} onPress={() => onNavigateLogin(props.onNavigate)}>
+                <TouchableOpacity style={styles.button} onPress={() => onNavigateLogin(navigation)}>
                     <Text style={styles.buttonText}>Login</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button}>
@@ -19,7 +19,7 @@ const WelcomeScreen = (props) => {
     );
 }
 
-const onNavigateLogin = (onNavigate) => onNavigate(GLOBALS.SCREEN.LOGIN);
+const onNavigateLogin = (onNavigate) => onNavigate.replace(GLOBALS.SCREEN.LOGIN);
 
 
 const styles = StyleSheet.create({

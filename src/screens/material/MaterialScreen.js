@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { StyleSheet, SafeAreaView, View, FlatList, Text, Modal, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { StyleSheet, SafeAreaView, View, FlatList, Text, TouchableOpacity } from 'react-native';
 
 const MATERIAL_SUBJECT = [
     {
@@ -34,36 +34,12 @@ const MATERIAL_SUBJECT = [
     },
 ];
 
-const MaterialInfoModal = ({ info, setVisible, isVisible }) => (
-    <Modal
-        animationType="slide"
-        transparent={true}
-        visible={isVisible}
-        onRequestClose={() => {
-            Alert.alert("Modal has been closed.");
-            setVisible(!isVisible);
-        }}
-    >
-        <View style={styles.centeredView}>
-            <View style={styles.modalView}>
-                <Text style={styles.itemTitleText}>{info.title}</Text>
-                <Text style={styles.itemDescriptionText}>{info.description}</Text>
-                <Text style={styles.itemDescriptionText}>
-                    <Text style={{ fontWeight: 'bold' }}>Duration: </Text>
-                    {info.duration}
-                </Text>
-                <View style={{ height: 15 }}></View>
-                <TouchableOpacity style={{alignSelf:'center'}} onPress={() => { setVisible(!isVisible); }}>
-                    <Text style={styles.itemDescriptionText}>Close</Text>
-                </TouchableOpacity>
-            </View>
-        </View>
-    </Modal>
-)
-const MaterialItem = ({ info, onSetModalInfo, onSetModalVisible }) => {
+
+const MaterialItem = ({ info, modalNavigation }) => {
     const onShowModal = () => {
-        onSetModalInfo(info)
-        onSetModalVisible(true)
+        modalNavigation.navigate('MaterialInfoModal', {
+            itemInfo: info,
+        })
     }
     return (
         <View style={styles.item}>
@@ -75,17 +51,14 @@ const MaterialItem = ({ info, onSetModalInfo, onSetModalVisible }) => {
     )
 };
 
-const MaterialScreen = () => {
-    const [modalVisible, setModalVisible] = useState(false);
-    const [modalInfo, setModalInfo] = useState({});
+const MaterialScreen = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.container}>
-            <MaterialInfoModal info={modalInfo} setVisible={setModalVisible} isVisible={modalVisible} />
             <View>
                 <FlatList
                     data={MATERIAL_SUBJECT}
                     renderItem={({ item }) => (
-                        <MaterialItem info={item} onSetModalInfo={setModalInfo} onSetModalVisible={setModalVisible} />
+                        <MaterialItem info={item} modalNavigation={navigation} />
                     )}
                     keyExtractor={item => item.id}
                 />
@@ -112,24 +85,6 @@ const styles = StyleSheet.create({
     },
     itemDescriptionText: {
         fontFamily: 'Roboto-Regular'
-    },
-    centeredView: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-    },
-    modalView: {
-        backgroundColor: "white",
-        borderRadius: 20,
-        padding: 35,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 4,
-        elevation: 5
     },
 });
 

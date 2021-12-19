@@ -1,7 +1,10 @@
 export default {
     SCREEN: {
-        LOGIN: '0',
-        WELCOME: '-1',
-        MATERIAL: '1',
+        LOGIN: 'Login',
+        WELCOME: 'Welcome',
+        MATERIAL: 'Material',
     },
+    MODAL: {
+        MATERIAL_INFO: 'MaterialInfoModal'
+    }
 };
