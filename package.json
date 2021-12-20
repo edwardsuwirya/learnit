@@ -7,7 +7,7 @@
     "ios": "expo run:ios",
     "web": "expo start --web",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest  --coverage"
   },
   "dependencies": {
     "@react-navigation/native": "^6.0.6",

@@ -11,6 +11,62 @@ exports[`Login Screen renders correctly 1`] = `
     }
   }
 >
+  <Modal
+    animationType="slide"
+    hardwareAccelerated={false}
+    transparent={true}
+    visible={false}
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "white",
+            "borderRadius": 10,
+            "elevation": 5,
+            "flexDirection": "row",
+            "height": 50,
+            "paddingLeft": 15,
+            "shadowColor": "#000",
+            "shadowOffset": Object {
+              "height": 2,
+              "width": 0,
+            },
+            "shadowOpacity": 0.25,
+            "shadowRadius": 4,
+            "width": 300,
+          }
+        }
+      >
+        <ActivityIndicator
+          animating={true}
+          color="#0000ff"
+          hidesWhenStopped={true}
+          size="small"
+        />
+        <Text
+          style={
+            Object {
+              "fontFamily": "Roboto-Bold",
+              "fontSize": 14,
+              "paddingLeft": 15,
+            }
+          }
+        >
+          Please Wait
+        </Text>
+      </View>
+    </View>
+  </Modal>
   <View
     style={
       Object {
@@ -30,7 +86,7 @@ exports[`Login Screen renders correctly 1`] = `
     </Text>
     <TextInput
       allowFontScaling={true}
-      onChangeText={[Function]}
+      onChangeText={[MockFunction]}
       rejectResponderTermination={true}
       style={
         Object {
@@ -58,7 +114,7 @@ exports[`Login Screen renders correctly 1`] = `
     </Text>
     <TextInput
       allowFontScaling={true}
-      onChangeText={[Function]}
+      onChangeText={[MockFunction]}
       rejectResponderTermination={true}
       secureTextEntry={true}
       style={

@@ -1,35 +1,20 @@
 import GLOBALS from '../../global';
-import { useState } from 'react';
-import { API_URL } from '@env';
+import {useState} from 'react';
 
-export const LoginBloc = () => {
+export const LoginBloc = (repo) => {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [isLoading, setShowLoading] = useState(false);
+    const {userAuthentication} = repo();
 
     const onAuthenticate = async (userName, password, navigation) => {
-        try {
-            handleShowLoadingChange(true);
-            const response = await fetch(
-                `${API_URL}/login`,
-                {
-                    method: 'POST',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        userName: userName,
-                        password: password,
-                    })
-                }
-            );
-            const json = await response.json();
-            handleShowLoadingChange(false);
+        handleShowLoadingChange(true);
+        const result = await userAuthentication(userName, password);
+        handleShowLoadingChange(false);
+        if (result) {
             navigation.replace(GLOBALS.SCREEN.MATERIAL);
-        } catch (error) {
-            handleShowLoadingChange(false);
-            console.error(error);
+        } else {
+
         }
     }
 
