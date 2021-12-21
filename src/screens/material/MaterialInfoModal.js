@@ -1,18 +1,21 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-const MaterialInfoModal = ({ route, navigation }) => {
-    const { itemInfo } = route.params;
+import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+
+const MaterialInfoModal = ({route, navigation}) => {
+    const {itemInfo} = route.params;
     return (
         <View style={styles.centeredView}>
             <View style={styles.modalView}>
                 <Text style={styles.itemTitleText}>{itemInfo.title}</Text>
                 <Text style={styles.itemDescriptionText}>{itemInfo.description}</Text>
                 <Text style={styles.itemDescriptionText}>
-                    <Text style={{ fontWeight: 'bold' }}>Duration: </Text>
+                    <Text style={{fontWeight: 'bold'}}>Duration: </Text>
                     {itemInfo.duration}
                 </Text>
-                <View style={{ height: 15 }}></View>
-                <TouchableOpacity style={{ alignSelf: 'center' }} onPress={() => { navigation.goBack(); }}>
+                <View style={{height: 15}}></View>
+                <TouchableOpacity style={{alignSelf: 'center'}} onPress={() => {
+                    navigation.goBack();
+                }}>
                     <Text style={styles.itemDescriptionText}>Close</Text>
                 </TouchableOpacity>
             </View>

@@ -8,6 +8,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import MaterialInfoModal from './src/screens/material/MaterialInfoModal';
 import {LoginBloc} from "./src/screens/login/LoginBloc";
 import {LoginRepository} from "./src/screens/login/LoginRepository";
+import {MaterialBloc} from "./src/screens/material/MaterialBloc";
+import {MaterialRepository} from "./src/screens/material/MaterialRepository";
 
 export default function App() {
     const Stack = createNativeStackNavigator();
@@ -20,7 +22,7 @@ export default function App() {
                     <Stack.Screen name={GLOBALS.SCREEN.LOGIN} options={{headerShown: false}}>
                         {props => <LoginScreen {...props} bloc={() => LoginBloc(LoginRepository)}/>}
                     </Stack.Screen>
-                    <Stack.Screen name={GLOBALS.SCREEN.MATERIAL} component={MaterialScreen} options={{
+                    <Stack.Screen name={GLOBALS.SCREEN.MATERIAL} options={{
                         title: 'LearnIt Material', headerStyle: {
                             backgroundColor: '#4169E1',
                         },
@@ -28,7 +30,9 @@ export default function App() {
                         headerTitleStyle: {
                             fontWeight: 'bold',
                         },
-                    }}/>
+                    }}>
+                        {props => <MaterialScreen {...props} bloc={() => MaterialBloc(MaterialRepository)}/>}
+                    </Stack.Screen>
                 </Stack.Group>
                 <Stack.Group screenOptions={{presentation: 'transparentModal'}}>
                     <Stack.Screen name={GLOBALS.MODAL.MATERIAL_INFO} component={MaterialInfoModal}

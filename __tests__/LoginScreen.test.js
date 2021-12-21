@@ -50,7 +50,6 @@ describe('Login Screen', () => {
 
         const loginButton = getByText('Login');
         fireEvent.press(loginButton);
-        expect(getByText('Please Wait')).toBeTruthy();
         expect(onAuthenticateMock.mock.calls.length).toBe(1);
     });
 
